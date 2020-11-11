@@ -38,13 +38,6 @@ class ui {
 			input.className = "input_"+objectiveName;
 			return input;
 		}
-		this.setButton = (customFunction, objectiveName) => {
-			let button = document.createElement("button");
-			button.onClick = () =>{
-				let answer = customFunction(document.getElementByClassName("input_"+objectiveName).value);
-				document.getElementByClassName("answer_"+objectiveName).value = answer;
-			}
-		}
 		this.setP = (objectiveName) => {
 			let p = document.createElement("p");
 			p.className = "p_"+objectiveName;
