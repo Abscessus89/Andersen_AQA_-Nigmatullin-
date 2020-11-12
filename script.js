@@ -1,5 +1,28 @@
 //написано Нигматуллиным Айдаром Азатовичем. по вопросам звоните указано в анкете
 
+class inFunctionalParadigm {
+	constructor(){
+		this.sayHiIfValueUpper7 = (value)=> {
+			return (Number.isSafeInteger(+value) && value >7)? "Привет" : "";
+		}
+		this.sayHiToVitek = (value)=>{
+			return (value === "Вячеслав")? "Привет, Вячеслав" : "Нет такого имени";
+		}
+		this.multipleOfThree = (value)=>{
+			return value.filter((number)=>{
+				const typecastingOfVariable = +number;
+				if (Number.isSafeInteger(typecastingOfVariable) && typecastingOfVariable !=0){
+					return (typecastingOfVariable%3==0);
+				}
+				else {
+					return false
+				}
+			});
+		}
+	}
+}
+
+// Event Handlers
 function sayHiIfValueUpper7 (event) {
 	const value = event.target.value;
 	const rezult = functionalParadigm.sayHiIfValueUpper7(value);
@@ -59,28 +82,6 @@ class ui {
 	}
 }
 
-class inFunctionalParadigm {
-	constructor(){
-		this.sayHiIfValueUpper7 = (value)=> {
-			return (Number.isSafeInteger(+value) && value >7)? "Привет" : "";
-		}
-		this.sayHiToVitek = (value)=>{
-			return (value === "Вячеслав")? "Привет, Вячеслав" : "Нет такого имени";
-		}
-		this.multipleOfThree = (value)=>{
-			return value.filter((number)=>{
-				const typecastingOfVariable = +number;
-				if (Number.isSafeInteger(typecastingOfVariable) && typecastingOfVariable !=0){
-					return (typecastingOfVariable%3==0);
-				}
-				else {
-					return false
-				}
-			});
-		}
-	}
-}
-
 let UI = new ui;
 const functionalParadigm = new inFunctionalParadigm;
 const elemNameArray = ["sayHiIfValueUpper7","sayHiToVitek","multipleOfThree"];
@@ -90,7 +91,6 @@ elemNameArray.map(element=>{
 	let header = objective.appendChild(document.createElement("h2"));
 	header.innerHTML = UI.getTitle(element);
 	let input = objective.appendChild(UI.setInput(element));
-	// event Handler
 	input.setAttribute("onchange", element+'(event)');
 	objective.appendChild(UI.setP(element));
 	document.body.insertBefore(objective, document.getElementById("main"));
